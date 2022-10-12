@@ -1,9 +1,12 @@
 class Solution:
-    def largestPerimeter(self, nums: List[int]) -> int:
-        nums.sort()
-        i = len(nums) - 1
-        while i > 1:
-            if (nums[i] < (nums[i-1] + nums[i-2])):
-                return nums[i] + nums[i-2] + nums[i-1]
-            i -= 1
-        return 0
+    def increasingTriplet(self, nums: List[int]) -> bool:
+        first = float("inf")
+        second = float("inf")
+        for num in nums:
+            if num <= first:
+                first = num
+            elif num <= second:
+                second = num
+            else:
+                return True
+        return False
